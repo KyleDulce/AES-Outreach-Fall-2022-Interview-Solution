@@ -44,7 +44,7 @@ export default class Wordle {
         response.entries = [];
         
         for(let x = 0; x < historyEntry.guesses.length; x++) {
-            let entry: WordleGuessEntry = new WordleGuessEntry();
+            const entry: WordleGuessEntry = new WordleGuessEntry();
             entry.guess = historyEntry.guesses[x];
             entry.result = this.checkGuess(historyEntry.word, entry.guess);
 

@@ -52,7 +52,7 @@ export class WordleHistoryMemory extends WordleHistory {
 
     public getHistory(id: string): WordleHistoryEntry {
         if(this.uuidToHistory.has(id)) {
-            let result: WordleHistoryEntry | undefined = this.uuidToHistory.get(id);
+            const result: WordleHistoryEntry | undefined = this.uuidToHistory.get(id);
             if(result !== undefined) {
                 return result;
             } else {

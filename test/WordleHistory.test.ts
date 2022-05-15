@@ -1,6 +1,6 @@
 import { WordleHistory, WordleHistoryMemory } from "../src/WordleHistory"
 
-let GeneralTestWordleHistoryObject = function(typeName: string, instance: WordleHistory) {
+const GeneralTestWordleHistoryObject = function(typeName: string, instance: WordleHistory) {
     test(typeName + " sessionExists true on exists, false on not exist", () => {
         instance.createSession("sessionExistsKey", "abcde");
         expect(instance.sessionExists("sessionExistsKey")).toBeTruthy();
@@ -18,7 +18,7 @@ let GeneralTestWordleHistoryObject = function(typeName: string, instance: Wordle
         instance.putEntry("getHistoryKey", "badE1");
         instance.putEntry("getHistoryKey", "badE2");
 
-        let actual = instance.getHistory("getHistoryKey");
+        const actual = instance.getHistory("getHistoryKey");
         expect(actual.word).toBe("abcde")
         expect(actual.id).toBe("getHistoryKey");
         expect(actual.guesses.length).toBe(2);

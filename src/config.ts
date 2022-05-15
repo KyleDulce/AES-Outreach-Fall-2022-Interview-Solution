@@ -6,7 +6,7 @@ export default class Config {
     static configInstance?: Config;
     static readonly CONFIG_FILE_YAML: string = "../config.yaml";
 
-    readonly resultFile: any;
+    readonly resultFile;
 
     private constructor() {
         console.log(`Loading Configuration: "${Config.CONFIG_FILE_YAML}"`);

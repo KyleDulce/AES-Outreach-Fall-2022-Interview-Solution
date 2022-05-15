@@ -20,7 +20,7 @@ describe("Test Wordle Class", () => {
 
     test("generateSession success", () => {
         const generateSessionSpy = jest.spyOn(wordleHistory, 'createSession');
-        let actual = wordle.generateSession();
+        const actual = wordle.generateSession();
 
         expect(generateSessionSpy).toHaveBeenCalled();
         expect(actual).toBeDefined();
@@ -29,14 +29,14 @@ describe("Test Wordle Class", () => {
     test("submitGuess success", () => {
         wordleHistory.createSession("generateSessionKey", "abcde");
 
-        let actual = wordle.submitGuess("generateSessionKey", "abcde");
+        const actual = wordle.submitGuess("generateSessionKey", "abcde");
 
         expect(actual).toBeDefined();
         expect(actual).toStrictEqual(['y','y','y','y','y'])
     })
 
     test("submitGuess session does not exist, null return", () => {
-        let actual = wordle.submitGuess("badSession", "abcde");
+        const actual = wordle.submitGuess("badSession", "abcde");
 
         expect(actual).toBeNull();
     })
@@ -46,14 +46,14 @@ describe("Test Wordle Class", () => {
         wordleHistory.putEntry("getHistoryKey", "12345");
         wordleHistory.putEntry("getHistoryKey", "abcde");
 
-        let actual = wordle.getHistory("getHistoryKey");
+        const actual = wordle.getHistory("getHistoryKey");
 
         expect(actual).toBeDefined();
         expect(actual?.session_key).toBe("getHistoryKey");
         expect(actual?.entries).toBeDefined();
         expect(actual?.entries?.length).toBe(2);
 
-        let entries = actual?.entries!;
+        const entries = actual?.entries!;
         expect(entries[0].guess).toBe("12345");
         expect(entries[0].result).toStrictEqual(['n','n','n','n','n']);
         expect(entries[1].guess).toBe("abcde");
