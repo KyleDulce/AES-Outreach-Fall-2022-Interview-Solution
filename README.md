@@ -7,7 +7,9 @@
 	- [Usage](#Usage)
 		- [Starting the Project](#Starting-the-Project)
 		- [Run Unit tests](#Run-Unit-tests)
+		- [Adjusting the Configuration](#Adjusting-the-Configuration)
 		- [Using the API](#Using-the-API)
+		- [Adding your own game history database](#Adding-your-own-game-history-database)
 
 ## About my Submission
 I completed the back-end challenge for the wordle game. The api runs on port 3000 and any option can be edited in config.yaml.
@@ -36,6 +38,17 @@ To run the project, download the repository and download and install [NodeJs](ht
 
 #### Run Unit tests
 In order to run the unit tests you must have already run `npm init` at least once. Run `npm run test` to conduct tests.
+
+#### Adjusting the Configuration
+There are many config options you can change. Inside `config.yaml` on the root of the project there are settings you can change to adjust the behavior of the server.
+
+Config name | type | description | current value 
+--- | --- | --- | ---
+server.port | number | the port for the server to listen to for api requests | 3000
+endpoints.generate | string | the endpoint for creating a session | '/key'
+endpoints.guess | string | the endpoint for submitting a guess | '/guess'
+endpoints.history | string | the endpoint for viewing the guess history | '/history'
+words | list of strings | the list of words used for the game | **see file**
 
 #### Using the API
 There are 3 endpoints to the api: `/key`, `/guess`, `/history`. The `/key` endpoint generates a session for the wordle game. `/guess` allows you to make a guess to the game. `/history` lets you see the history of your guesses for the provided session
@@ -86,3 +99,10 @@ Label | Type | Description
 --- | --- | ---
 guess | String | The guess that was provided
 result | String[] | The response the server provided
+
+#### Adding your own game history database
+The server is setup to easily allow you to use your own database for storing game history. Currently it stores the history in memory. To add your own database you must inherit the abstract class `WordleHistory` in `WordleHistory.ts` and implement the abstract methods. To have the server use that new database, go into the `Wordle` Class in `Wordle.ts` and change the default value of the `WordleHistory` object in the constructor from:
+```
+constructor(historyOverride: WordleHistory = new WordleHistoryMemory()) {
+```
+to your new database.
