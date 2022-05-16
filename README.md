@@ -85,4 +85,4 @@ entries | Entry[] | Array of entries in order of guesses. See below for Mapping 
 Label | Type | Description
 --- | --- | ---
 guess | String | The guess that was provided
-result | Entry[]** | The response the server provided
+result | String[] | The response the server provided
