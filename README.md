@@ -34,10 +34,10 @@ I completed the back-end challenge for the wordle game. The api runs on port 300
 ### Usage
 
 #### Starting the Project
-To run the project, download the repository and download and install [NodeJs](https://nodejs.org/en/). Next you will want to run `npm init` once to install the project then `npm run start` to start the server. The server runs on port 3000 but this can be changed in the configuration.
+To run the project, download the repository and download and install [NodeJs](https://nodejs.org/en/). Next you will want to run `npm install` once to install the project then `npm run start` to start the server. The server runs on port 3000 but this can be changed in the configuration.
 
 #### Run Unit tests
-In order to run the unit tests you must have already run `npm init` at least once. Run `npm run test` to conduct tests.
+In order to run the unit tests you must have already run `npm install` at least once. Run `npm run test` to conduct tests.
 
 #### Adjusting the Configuration
 There are many config options you can change. Inside `config.yaml` on the root of the project there are settings you can change to adjust the behavior of the server.
